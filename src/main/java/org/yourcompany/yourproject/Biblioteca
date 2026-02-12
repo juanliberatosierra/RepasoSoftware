@@ -3,8 +3,17 @@ package our.yourcompany.yourproject;
 public class Biblioteca {
     
     private ArrayList<socio> socios = new Arraylist<>();
-    private ArrayList<Bibliotecario> Bibliotecarios = new Arraylist<>();
-    
-    
+    private ArrayList<Bibliotecario> bibliotecario= new Arraylist<>();
 
+    public Biblioteca() {}
+    public private ArrayList<Bibliotecario> darBibliotecarios () {
+         return bibliotecario
+
+    }
+    public void agregarSocio (Socio socio) {
+         socios.add(socio);
+        }
+    public void agregarBibliotecario (Bibliotecario bibliotecario) {
+         bibliotecario.add(bibliotecario);
+        }
     }
