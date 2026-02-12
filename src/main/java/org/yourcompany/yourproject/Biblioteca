@@ -1,0 +1,10 @@
+package our.yourcompany.yourproject;
+
+public class Biblioteca {
+    
+    private ArrayList<socio> socios = new Arraylist<>();
+    private ArrayList<Bibliotecario> Bibliotecarios = new Arraylist<>();
+    
+    
+
+    }

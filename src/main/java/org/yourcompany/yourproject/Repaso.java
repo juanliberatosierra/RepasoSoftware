@@ -11,6 +11,11 @@ package org.yourcompany.yourproject;
 public class Repaso {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Bibliotecario bibliotecario = new Bibliotecario("1", "pepe","pepe@gmail.com","mañana");
+        System.out.println(bibliotecario.darEmail());
+
+        Socio socio = new Socio("1", "Juan","juan@gmail.com",5);
+        socio.registrarPrestamo(2);
+
     }
 }
