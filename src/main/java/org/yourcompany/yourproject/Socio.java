@@ -1,26 +1,33 @@
 package org.yourcompany.yourproject;
 
-    public class Socio extends Usuario{
-        private int limiteEjemplares;
-        private int ejemplaresEnPrestamo;
-        private double multasPendientes;
+public class Socio extends Usuario {
 
-public Socio(String id, String nombre, String email, int limiteEjemplares ) {
-    super(id, nombre, email);
-    this.limiteEjemplares = limiteEjemplares;
-    ejemplaresEnPrestamo = 0;
-    multasPendientes = 0;
-    }
-public void registrarPrestamo(int cantidad) {
-    if(cantidad > (limiteEjemplares - ejemplaresEnPrestamo)){
-        throw new IllegalArgumentException("Supera el limite del socio");
-        }
-        if(multasPendientes > 0){
-            throw new IllegalArgumentException("No puede pedir si tiene una multa");
+    private int limiteEjemplares;
+    private int ejemplaresEnPrestamo;
+    private double multasPendientes;
 
-        }
-        System.out.println("Se prestaron"+ cantidad + "libros");
+    public Socio(String id, String nombre, String email, int limiteEjemplares) {
+        super(id, nombre, email);
+        this.limiteEjemplares = limiteEjemplares;
+        this.ejemplaresEnPrestamo = 0;
+        this.multasPendientes = 0;
     }
 
+    public boolean puedePedirPrestamo(int cantidad) {
+        if (multasPendientes > 0) {
+            return false;
+        }
+        return (ejemplaresEnPrestamo + cantidad) <= limiteEjemplares;
+    }
 
+    public void registrarPrestamo(int cantidad) {
+        if (!puedePedirPrestamo(cantidad)) {
+            throw new IllegalArgumentException("El socio no puede realizar el préstamo");
+        }
+        ejemplaresEnPrestamo += cantidad;
+    }
+
+    public void agregarMulta(double monto) {
+        multasPendientes += monto;
+    }
 }
