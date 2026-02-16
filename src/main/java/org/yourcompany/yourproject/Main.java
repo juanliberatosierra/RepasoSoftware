@@ -27,5 +27,8 @@ public class Main {
         socio.registrarPrestamo(2);
 
         System.out.println("Sistema funcionando correctamente");
+        System.out.println("Prueba del sistemas");
     }
 }
+
+
